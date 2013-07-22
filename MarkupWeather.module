@@ -121,7 +121,7 @@ class MarkupWeather extends WireData implements Module, ConfigurableModule {
                 );
 
                 // Translatable array of conditions
-                $translations = array(
+                $conditions = array(
                     'Tornado' => __("Tornado", __FILE__),
                     'Tropical Storm' => __("Tropical Storm", __FILE__),
                     'Hurricane' => __("Hurricane", __FILE__),
@@ -179,14 +179,14 @@ class MarkupWeather extends WireData implements Module, ConfigurableModule {
                 $out .= "<div class='current'>";
                 $out .= "<img src='" . str_replace("http://l.yimg.com/a/i/us/we/52/", "{$this->config->urls->MarkupWeather}icons/", "http://l.yimg.com/a/i/us/we/52/" . $current['code'] . ".png") . "' />";
                 $out .= "<span class='temp'>" . $current['temp'] . "&deg;" . strtoupper($scale) . "</span>";
-                $out .= "<div class='conditions'>" . __("Current Conditions:", __FILE__) . " <span>" . str_replace(array_keys($translations), $translations, $current['text']) . "</span></div>";
+                $out .= "<div class='conditions'>" . __("Current Conditions:", __FILE__) . " <span>" . str_replace(array_keys($conditions), $conditions, $current['text']) . "</span></div>";
                 $out .= "</div>";
 
                 // Show 5 day forecast below current weather forecast
                 if($this->days == 1) {
                     $out .= "<ul class='forecast'>";
                     for($i = 0; $i < 5; $i++) {
-                        $out .= "<li><span class='day'>" . str_replace(array_keys($days), $days, $forecast[$i]['day']) . "</span>" . "<img class='tip' src='" . str_replace("http://l.yimg.com/a/i/us/we/52/", "{$this->config->urls->MarkupWeather}icons/", "http://l.yimg.com/a/i/us/we/52/" . $forecast[$i]['code'] . ".png") . "' title='" . str_replace(array_keys($translations), $translations, $forecast[$i]['text']) . "' /><span class='high'>" . $forecast[$i]['high'] . "&deg;" . strtoupper($scale) . "</span><span class='low'>" . $forecast[$i]['low'] . "&deg;" . strtoupper($scale) . "</span></li>";
+                        $out .= "<li><span class='day'>" . str_replace(array_keys($days), $days, $forecast[$i]['day']) . "</span>" . "<img class='tip' src='" . str_replace("http://l.yimg.com/a/i/us/we/52/", "{$this->config->urls->MarkupWeather}icons/", "http://l.yimg.com/a/i/us/we/52/" . $forecast[$i]['code'] . ".png") . "' title='" . str_replace(array_keys($conditions), $conditions, $forecast[$i]['text']) . "' /><span class='high'>" . $forecast[$i]['high'] . "&deg;" . strtoupper($scale) . "</span><span class='low'>" . $forecast[$i]['low'] . "&deg;" . strtoupper($scale) . "</span></li>";
                 	}
                     $out .= "</ul>";
                 }
