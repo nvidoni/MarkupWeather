@@ -1,20 +1,20 @@
-# ProcessWire Yahoo! Weather
+# ProcessWire Markup Yahoo! Weather
 
 Display weather forecast using Yahoo! Weather API in ProcessWire CMS
 
-![ProcessWire Yahoo! Weather Widget](https://raw.github.com/nvidoni/weather/master/screenshot.png)
+![ProcessWire Yahoo! Weather Widget](https://raw.github.com/nvidoni/MarkupWeather/master/screenshot.png)
 
 ## How to install
 
 Copy module directory to /site/modules/ directory.
 
-Click *check for new modules* in ProcessWire Admin Modules screen. Click *install* for the module labeled: "Weather".
+Click *check for new modules* in ProcessWire Admin Modules screen. Click *install* for the module labeled: "MarkupWeather".
 
 ## How to use
 
 Copy this line to template of your choice where you want the weather widget to be displayed:
 
-<?php echo $modules->get('Weather')->render(); ?>
+<?php echo $modules->get('MarkupWeather')->render(); ?>
 
 ## Options
 
