@@ -30,7 +30,7 @@ class MarkupWeather extends WireData implements Module, ConfigurableModule {
 			'title' => 'Markup Yahoo! Weather',
 			'version' => 102,
 			'summary' => __('Display weather forecast using Yahoo! Weather API', __FILE__),
-            'autoload' => true,
+            'autoload' => false,
             'singular' => true
 		);
 	}
