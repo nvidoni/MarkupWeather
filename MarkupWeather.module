@@ -12,9 +12,9 @@
  * Version 1.0.2
  *
  * ProcessWire 2.x
- * Copyright (C) 2013 by Ryan Cramer 
+ * Copyright (C) 2013 by Ryan Cramer
  * Licensed under GNU/GPL v2, see LICENSE.TXT
- * 
+ *
  * http://processwire.com
  *
  */
@@ -91,7 +91,7 @@ class MarkupWeather extends WireData implements Module, ConfigurableModule {
      */
     public function ___render() {
 
-        if($page->template == 'admin') return;
+        if(wire()->page->template == 'admin') return;
 
         // Check what temperature scale is in use
         $scale = $this->scale ? 'f' : 'c';
@@ -209,7 +209,7 @@ class MarkupWeather extends WireData implements Module, ConfigurableModule {
 		$fields = new InputfieldWrapper();
 
 		$modules = wire('modules');
-		
+
 		$data = array_merge(self::$options, $data);
 
         $field = $modules->get("InputfieldText");
