@@ -224,14 +224,14 @@ class MarkupWeather extends WireData implements Module, ConfigurableModule {
 
         $field = $modules->get("InputfieldText");
 		$field->name = "locale";
-		$field->label = "Set Locale";
+		$field->label = __("Set Locale", __FILE__);
 		$field->value = $data['locale'];
 		$field->notes = __("See the [PHP setlocale](http://php.net/manual/en/function.setlocale.php) function reference for more information on how to customize this format.", __FILE__);
 		$fields->add($field);
 
         $field = $modules->get("InputfieldText");
 		$field->name = "date";
-		$field->label = "Date Format";
+		$field->label = __("Date Format", __FILE__);
 		$field->value = $data['date'];
 		$field->notes = __("See the [PHP strftime](http://php.net/manual/en/function.strftime.php) function reference for more information on how to customize this format.", __FILE__);
 		$fields->add($field);
