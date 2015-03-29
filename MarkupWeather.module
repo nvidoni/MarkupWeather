@@ -97,8 +97,10 @@ class MarkupWeather extends WireData implements Module, ConfigurableModule {
         $scale = $this->scale ? 'f' : 'c';
         // Get weather data
         $result = file_get_contents('http://weather.yahooapis.com/forecastrss?w=' . $this->woeid . '&u=' . $scale);
-		if($result){
-			$xml = simplexml_load_string($result);
+
+        if($result) {
+
+            $xml = simplexml_load_string($result);
 			$xml->registerXPathNamespace('yweather', 'http://xml.weather.yahoo.com/ns/rss/1.0');
 
 			$location = $xml->channel->xpath('yweather:location');
@@ -176,7 +178,7 @@ class MarkupWeather extends WireData implements Module, ConfigurableModule {
 
 					// Weather forecast container
 					$out = "<div id='weather'>";
-					$out .= "<div class='location'><h3>Aktuelles Wetter in " . $location[0]['city'] . "</h3><span>" . iconv('ISO-8859-2', 'UTF-8', strftime($this->date, strtotime(date("d.m.Y.")))) . "</span></div>";
+					$out .= "<div class='location'><h3>" . $location[0]['city'] . "</h3><span>" . iconv('ISO-8859-2', 'UTF-8', strftime($this->date, strtotime(date("d.m.Y.")))) . "</span></div>";
 					$out .= "<div class='current'>";
 					$out .= "<img src='" . str_replace("http://l.yimg.com/a/i/us/we/52/", "{$this->config->urls->MarkupWeather}icons/", "http://l.yimg.com/a/i/us/we/52/" . $current['code'] . ".png") . "' />";
 					$out .= "<span class='temp'>" . $current['temp'] . "&deg;" . strtoupper($scale) . "</span>";
